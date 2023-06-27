@@ -1,3 +1,4 @@
+const letters = require('./letters');
 class GameController {
     static InitializeShips() {
         var colors = require("cli-color");
@@ -29,6 +30,21 @@ class GameController {
 
     static isShipValid(ship) {
         return ship.positions.length == ship.size;
+    }
+
+    static printBoard(ships, position) {
+        letters.enums.forEach((y) => {
+            let line = "";
+            for(let x = 0; x < letters.enums.length; x++) {
+                if(position.row === x && position.column.key === y.key && this.CheckIsHit(ships, position)) {
+                    line += "X";
+                } else {
+                    line += "~";
+                }
+                line += " ";
+            }
+            console.log(line);
+        });
     }
 }
 
