@@ -90,6 +90,7 @@ class Battleship {
                 console.log("                 -\\  \\     /  /-");
                 console.log("                   \\  \\   /  /");
             }
+            gameController.printBoard(this.myFleet, computerPos);
         }
         while (true);
     }
