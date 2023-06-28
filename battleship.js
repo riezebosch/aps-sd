@@ -90,7 +90,13 @@ class Battleship {
                 console.log("                   \\  \\   /  /");
             }
         }
-        while (true);
+        while (gameController.gameEnded(this.myFleet) || gameController.gameEnded(this.enemyFleet));
+        if(gameController.gameEnded(this.myFleet)) {
+            console.log('You lost!');
+        } else {
+            console.log('You are the winner!');
+        }
+
     }
 
     static ParsePosition(input) {
