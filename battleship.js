@@ -137,7 +137,7 @@ class Battleship {
 
 
             telemetryWorker.postMessage({eventName: 'Player_PlaceShipPosition', properties:  {Position: position, Ship: ship.namecl}});
-            ship.addPosition(Battleship.ParsePosition(position));
+            ship.addPositions(Battleship.ParsePosition(position), direction);
         })
     }
 
