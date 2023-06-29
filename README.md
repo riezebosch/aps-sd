@@ -52,3 +52,11 @@ npm install
 npm test
 node index.js
 ```
+
+
+Player starting position solution
+- Ask player position to put the ship
+- Ask player which direction to put the ship (north/south/east/west)
+- Refuse position if it's deemed invalid
+- Repeat first step
+- If it's okay, go to next ship
