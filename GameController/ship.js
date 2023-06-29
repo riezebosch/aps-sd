@@ -18,8 +18,14 @@ class Ship {
                 case "E":
                     this.positions.push(new position(letters.get(startingPosition.column.value + i), startingPosition.row));
                     break;
+                case "W":
+                    this.positions.push(new position(letters.get(startingPosition.column.value - i), startingPosition.row));
+                    break;
                 case "S":
                     this.positions.push(new position(startingPosition.column, startingPosition.row + i));
+                    break;
+                case "N":
+                    this.positions.push(new position(startingPosition.column, startingPosition.row - i));
                     break;
             }
         }
