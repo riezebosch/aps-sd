@@ -126,7 +126,7 @@ class Battleship {
 
         this.myFleet.forEach(function (ship) {
             console.log();
-            console.log(`Enter the starting position of ${ship.name} of size  ${ship.size} (i.e A3):`);
+            console.log(`Enter the starting position of the ${ship.name} of size  ${ship.size} (i.e A3):`);
             const position = readline.question();
             let direction = "";
             do {
