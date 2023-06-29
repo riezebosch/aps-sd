@@ -9,6 +9,7 @@ class Ship {
     addPosition(position) {
         this.positions.push(position);
     }
+
 }
 
 module.exports = Ship;

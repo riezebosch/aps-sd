@@ -99,6 +99,11 @@ class Battleship {
         return new position(letter, number);
     }
 
+    static checkDirection(direction)
+    {
+        return  ['N', 'S', 'E', 'W'].includes(direction);
+    }
+
     GetRandomPosition() {
         var rows = 8;
         var lines = 8;
@@ -121,13 +126,18 @@ class Battleship {
 
         this.myFleet.forEach(function (ship) {
             console.log();
-            console.log(`Please enter the positions for the ${ship.name} (size: ${ship.size})`);
-            for (var i = 1; i < ship.size + 1; i++) {
-                    console.log(`Enter position ${i} of ${ship.size} (i.e A3):`);
-                    const position = readline.question();
-                    telemetryWorker.postMessage({eventName: 'Player_PlaceShipPosition', properties:  {Position: position, Ship: ship.name, PositionInShip: i}});
-                    ship.addPosition(Battleship.ParsePosition(position));
+            console.log(`Enter the starting position of ${ship.name} of size  ${ship.size} (i.e A3):`);
+            const position = readline.question();
+            let direction = "";
+            do {
+                console.log(`Enter direction of the ship (i.e N/S/W/E):`);
+                direction = readline.question();
             }
+            while (! Battleship.checkDirection(direction))
+
+
+            telemetryWorker.postMessage({eventName: 'Player_PlaceShipPosition', properties:  {Position: position, Ship: ship.namecl}});
+            ship.addPosition(Battleship.ParsePosition(position));
         })
     }
 
